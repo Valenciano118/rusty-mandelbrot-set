@@ -1,0 +1,1 @@
+I'll try to implement the Mandelbrot set using Rust. I've never implemented it before nor do I have any idea of which libraries I should use to represent it graphically, so this is going to be a wild ride for me.
