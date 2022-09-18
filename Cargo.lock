@@ -424,6 +424,7 @@ name = "rusty-mandelbrot-set"
 version = "0.1.0"
 dependencies = [
  "image",
+ "rayon",
 ]
 
 [[package]]
