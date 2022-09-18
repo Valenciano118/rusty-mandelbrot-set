@@ -2,9 +2,9 @@ use image::RgbImage;
 use rayon::prelude::*;
 use image::Rgb;
 
-const WIDTH:u32 = 16000;
-const HEIGHT:u32 = 9000;
-const ITERATIONS:u32= 8000;
+const WIDTH:u32 = 3840;
+const HEIGHT:u32 = 2160;
+const ITERATIONS:u32= 100000;
 
 
 
@@ -12,7 +12,11 @@ fn main() {
     //mandelbrot(16000, 9000,8000);
     let mut imgbuf: RgbImage = image::ImageBuffer::new(WIDTH, HEIGHT);
 
-    imgbuf.enumerate_pixels_mut().par_bridge().for_each(|(x, y, pixel)| mandel_loop(x, y, pixel,ITERATIONS));
+    imgbuf.enumerate_pixels_mut()
+        .par_bridge()
+        .for_each(|(x, y, pixel)| 
+                mandel_loop(x, y, pixel,ITERATIONS)
+            );
 
     imgbuf.save(format!("fractal_{}_{}_iter{}.png",WIDTH,HEIGHT,ITERATIONS)).unwrap();
 
